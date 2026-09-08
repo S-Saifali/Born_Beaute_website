@@ -5,35 +5,41 @@
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&display=swap');
 
 :root {
-  --color-bg: #f3f2f2;
-  --color-surface: #eae9e9;
-  --color-text: #201e1d;
-  --color-accent: #ec3013;
-  --color-accent-2: #e15b47;
-  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+  /* Warm "blush atelier" palette — soft cream ground, rose accent, gold
+     secondary. Retuned from the Modernist greys for a softer, editorial feel. */
+  --color-bg: #f8f1ec;
+  --color-surface: #f1e4dd;
+  --color-text: #2b2126;
+  --color-accent: #b8556e;
+  --color-accent-2: #c79a5c;
+  --color-divider: color-mix(in srgb, #2b2126 24%, transparent);
 
-  --color-neutral-100: #f8f4f4;
-  --color-neutral-200: #eae7e7;
-  --color-neutral-300: #d7d3d3;
-  --color-neutral-400: #bab6b6;
-  --color-neutral-500: #9b9797;
-  --color-neutral-600: #7d7979;
-  --color-neutral-700: #605d5d;
-  --color-neutral-800: #444141;
-  --color-neutral-900: #2d2b2b;
+  --color-neutral-100: #f7efe9;
+  --color-neutral-200: #ece0d8;
+  --color-neutral-300: #dccec4;
+  --color-neutral-400: #c3b2a7;
+  --color-neutral-500: #a4928a;
+  --color-neutral-600: #877772;
+  --color-neutral-700: #6c5b57;
+  --color-neutral-800: #4a3c3a;
+  --color-neutral-900: #322629;
 
-  --color-accent-100: #fff2ef;
-  --color-accent-200: #ffe0d9;
-  --color-accent-300: #ffc4b8;
-  --color-accent-400: #ff9783;
-  --color-accent-500: #ff563c;
-  --color-accent-600: #dd2b0f;
-  --color-accent-700: #ae1800;
-  --color-accent-800: #7c1405;
-  --color-accent-900: #4d170e;
+  --color-accent-100: #fbeef1;
+  --color-accent-200: #f6dae0;
+  --color-accent-300: #ecbac6;
+  --color-accent-400: #dd93a6;
+  --color-accent-500: #cc6f88;
+  --color-accent-600: #a5455e;
+  --color-accent-700: #883a4e;
+  --color-accent-800: #632b39;
+  --color-accent-900: #431e28;
 
+  /* Fraunces (soft serif) carries the display headings; Archivo stays on
+     labels, buttons, numbers and body for crispness. */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-heading: "Archivo", system-ui, sans-serif;
   --font-heading-weight: 800;
   --font-body: "Archivo", system-ui, sans-serif;
@@ -45,14 +51,15 @@
   --space-6: 24px;
   --space-8: 32px;
 
-  --radius-md: 0px;
+  --radius-md: 10px;
+  --radius-lg: 22px;
 
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #322629 12%, transparent);
+  --shadow-md: 0 6px 20px color-mix(in srgb, #322629 14%, transparent);
+  --shadow-lg: 0 18px 44px color-mix(in srgb, #322629 20%, transparent);
 
-  --ink-dark: #141312;
-  --rule: 2px solid var(--color-divider);
+  --ink-dark: #241a1f;
+  --rule: 1.5px solid var(--color-divider);
   --wrap: 1240px;
   --gutter: 24px;
   --header-h: 76px;
@@ -571,4 +578,427 @@ textarea.input { min-height: 108px; resize: vertical; }
 @media print {
   .site-header, .to-top, .drawer, .drawer-backdrop, .hero-media, .toast { display: none !important; }
   body { background: #fff; }
+}
+
+/* ============================================================================
+   Real-content components (Arlington Heights rebuild)
+   Booking + shop moved to external Square; added team, gift, contact, menu
+   durations, and a floating "Text us" action.
+   ========================================================================== */
+
+/* --- full menu: appointment durations ------------------------------------ */
+
+.menu-dur {
+  display: block; font-family: var(--font-body); font-weight: 400;
+  font-size: 12px; line-height: 16px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--color-neutral-600); margin-top: 3px;
+}
+.price-row { align-items: baseline; }
+.price-row dt { font-family: var(--font-body); }
+.menu-note {
+  margin-top: 16px; font-size: 13px; line-height: 20px;
+  color: var(--color-neutral-700); max-width: 44ch;
+}
+
+/* --- team ---------------------------------------------------------------- */
+
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px; margin-top: 40px; background: var(--color-divider);
+  border-top: var(--rule); border-bottom: var(--rule);
+}
+.member {
+  background: var(--color-bg); padding: 28px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.avatar {
+  width: 56px; height: 56px; flex: none; display: grid; place-items: center;
+  background: var(--ink-dark); color: var(--color-bg);
+  font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: 0.02em;
+}
+.avatar::after { content: attr(data-initials); }
+.member:nth-child(3n+2) .avatar { background: var(--color-accent); }
+.member:nth-child(3n) .avatar { background: var(--color-neutral-700); }
+.member-name { font-family: var(--font-heading); font-weight: 800; font-size: 19px; line-height: 24px; letter-spacing: -0.01em; }
+.member-role { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-top: -6px; }
+.member-bio { font-size: 14px; line-height: 22px; color: var(--color-neutral-700); }
+
+/* --- book band: supporting line ------------------------------------------ */
+
+.book-sub { font-size: 16px; line-height: 26px; max-width: 52ch; margin-top: 20px; }
+
+/* --- gift cards ---------------------------------------------------------- */
+
+.gift {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 32px clamp(24px, 5vw, 72px); align-items: center;
+}
+.gift-amounts {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 32px;
+}
+.gift-amounts li {
+  font-family: var(--font-heading); font-weight: 800; font-size: 15px;
+  padding: 8px 16px; border: 2px solid var(--color-divider);
+  font-feature-settings: "tnum" 1;
+}
+.gift-amounts li:last-child { color: var(--color-neutral-700); }
+.gift-media img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; background: var(--color-surface); }
+
+@media (max-width: 760px) {
+  .gift { grid-template-columns: 1fr; }
+  .gift-media { order: -1; }
+}
+
+/* --- contact ------------------------------------------------------------- */
+
+.contact-layout {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 40px clamp(24px, 5vw, 72px); align-items: start; margin-top: 40px;
+}
+.contact-info { display: grid; gap: 28px; }
+.info-block h3 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 10px; }
+.info-block p { font-size: 16px; line-height: 26px; }
+.info-block .link-arrow { margin-top: 10px; }
+.hours { display: grid; gap: 8px; }
+.hours > div { display: flex; align-items: baseline; gap: 12px; }
+.hours dt { font-size: 15px; min-width: 96px; }
+.hours dd { font-family: var(--font-heading); font-weight: 800; font-size: 15px; }
+
+.map { margin-top: 44px; border: var(--rule); background: var(--color-surface); }
+.map iframe { display: block; width: 100%; height: 380px; border: 0; filter: grayscale(1) contrast(1.05); }
+
+@media (max-width: 860px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .map iframe { height: 300px; }
+}
+
+/* --- form: light theme (contact lives on the page ground, not the band) --- */
+
+.contact-form .form-grid { grid-template-columns: 1fr; gap: 18px; }
+.contact-form .field > span { color: var(--color-neutral-700); }
+.contact-form .input {
+  color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 2px solid var(--color-divider); color-scheme: light;
+}
+.contact-form .input::placeholder { color: var(--color-neutral-500); }
+.contact-form .input:hover { border-color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+.contact-form .input:focus { border-color: var(--color-accent); background: var(--color-bg); }
+.contact-form .input:focus-visible { outline: 2px solid var(--color-accent); }
+.contact-form textarea.input { min-height: 140px; }
+.contact-form .field > span.field-error { color: var(--color-accent-700); }
+.contact-form .form-status {
+  background: var(--color-accent-100); border-left: 4px solid var(--color-accent);
+  color: var(--color-accent-900);
+}
+.contact-form .form-fine { color: var(--color-neutral-600); opacity: 1; }
+
+/* --- floating: text us + back to top ------------------------------------- */
+
+.textus {
+  position: fixed; right: 20px; bottom: 20px; z-index: 95;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--color-accent); color: var(--color-bg);
+  padding: 12px 18px; font-family: var(--font-heading); font-weight: 800;
+  font-size: 14px; box-shadow: var(--shadow-md);
+  transition: background-color .15s ease, transform .15s ease;
+}
+.textus:hover { background: var(--color-accent-600); color: var(--color-bg); transform: translateY(-1px); }
+.textus svg { display: block; }
+
+/* lift the back-to-top button clear of the Text us pill */
+.to-top { bottom: 78px; }
+
+/* keep the fixed Text us pill from covering the last footer line */
+.footer-bottom { padding-bottom: 44px; }
+@media (max-width: 560px) {
+  .footer-bottom { padding-bottom: 64px; }
+}
+
+@media (max-width: 560px) {
+  .textus span { display: none; }
+  .textus { padding: 14px; }
+}
+
+/* ============================================================================
+   Atelier layer — artistic / editorial art-direction on top of the system.
+   Warm palette (tokens above) + Fraunces display serif + softer geometry.
+   ========================================================================== */
+
+/* --- display serif on the headlines that carry the mood ------------------ */
+
+h1, h2, h3, h4, h5, h6 { font-optical-sizing: auto; }
+
+.hero h1,
+.h2,
+.book h2,
+.service h3,
+.member-name,
+.giftcard-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.hero h1 { font-weight: 600; letter-spacing: -0.015em; }
+.hero h1 .ital { font-style: italic; font-weight: 500; }
+.service h3 { font-weight: 600; }
+.member-name { font-weight: 600; letter-spacing: -0.005em; }
+
+/* brand wordmark reads as a little logotype */
+.nav-brand, .footer-brand {
+  font-family: var(--font-display); font-style: italic; font-weight: 600; letter-spacing: 0;
+}
+
+/* --- softer geometry ----------------------------------------------------- */
+
+.btn { border-radius: 999px; }
+.input { border-radius: 12px; }
+.avatar { border-radius: 50%; }
+.service-dot { border-radius: 50%; background: var(--color-accent-2); }
+
+/* warm, editorial tone on the photography instead of flat grey */
+.grayscale { filter: grayscale(1) sepia(0.6) saturate(1.55) hue-rotate(302deg) brightness(1.03) contrast(0.98); }
+
+/* arched top on the studio photo — a salon/editorial motif */
+.about-media img { border-radius: 150px 150px 16px 16px; }
+.gift-visual { display: flex; justify-content: center; align-items: center; }
+
+.map { border-radius: var(--radius-lg); overflow: hidden; }
+
+/* a lighter, quieter section rule */
+.hr { height: 1.5px; }
+
+/* --- interactive gift card ----------------------------------------------- */
+
+.gift-amounts { gap: 12px; }
+.chip {
+  font-family: var(--font-heading); font-weight: 800; font-size: 15px; line-height: 1;
+  padding: 11px 20px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--color-text);
+  border: 1.5px solid var(--color-divider);
+  font-feature-settings: "tnum" 1;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.chip:hover { border-color: var(--color-accent); color: var(--color-accent-700); }
+.chip:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.chip.is-selected {
+  background: var(--color-accent); border-color: var(--color-accent); color: #fff;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--color-accent) 38%, transparent);
+  transform: translateY(-1px);
+}
+
+.gift-custom { display: flex; align-items: center; gap: 8px; max-width: 230px; margin: 4px 0 26px; }
+.gift-custom[hidden] { display: none; }
+.gift-custom-prefix { font-family: var(--font-heading); font-weight: 800; font-size: 18px; }
+.gift-custom .input { margin: 0; }
+
+.giftcard {
+  width: 100%; max-width: 430px; aspect-ratio: 16 / 10;
+  padding: clamp(20px, 4vw, 30px); color: #f8f1ec;
+  border-radius: 20px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(150deg, #372a30 0%, #241a1f 100%);
+  box-shadow: var(--shadow-lg);
+  transition: transform .35s ease, box-shadow .35s ease, background .55s ease;
+}
+.giftcard::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 80% at 85% 0%, rgba(255,255,255,0.14), transparent 60%);
+}
+.giftcard.is-active {
+  background: linear-gradient(145deg, #cc6f88 0%, #8f3a51 55%, #c79a5c 130%);
+  transform: translateY(-4px) rotate(-1.2deg);
+  box-shadow: 0 26px 54px color-mix(in srgb, var(--color-accent) 34%, transparent);
+}
+.giftcard-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; position: relative; z-index: 1; }
+.giftcard-brand { font-size: clamp(20px, 3.4vw, 26px); }
+.giftcard-label { font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; }
+.giftcard-chip {
+  width: 46px; height: 34px; border-radius: 7px; position: relative; z-index: 1;
+  background: linear-gradient(135deg, #e6c98a, #c79a5c); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+.giftcard-chip::before { content: ""; position: absolute; inset: 8px 6px; border: 1px solid rgba(36,26,31,0.35); border-radius: 3px; }
+.giftcard-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; position: relative; z-index: 1; }
+.giftcard-dots { font-family: var(--font-heading); font-weight: 800; letter-spacing: 0.12em; opacity: 0.7; font-size: 14px; }
+.giftcard-amount { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 6vw, 44px); line-height: 1; font-feature-settings: "tnum" 1; }
+
+@keyframes amtPop { 0% { transform: scale(0.72); opacity: 0.25; } 100% { transform: scale(1); opacity: 1; } }
+.giftcard.is-pulse .giftcard-amount { animation: amtPop 0.45s cubic-bezier(.2,.85,.2,1); transform-origin: right bottom; }
+
+/* ============================================================================
+   Requested tweaks — bolder nav, real studio portrait, Google-coloured badge.
+   ========================================================================== */
+
+/* bolder, more prominent primary navigation */
+.nav-links a { font-weight: 700; font-size: 15px; letter-spacing: 0.01em; }
+@media (max-width: 900px) { .nav-links a { font-size: 17px; } }
+
+/* studio section now holds a real portrait photo, shown in full colour.
+   height:auto lets aspect-ratio win over the img's height attribute. */
+.about-media img {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-position: center 22%;
+  box-shadow: var(--shadow-md);
+}
+
+/* hero eyebrow: location + eye-catching Google-rating badge */
+.hero-eyebrow {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+  margin-bottom: 24px;
+}
+.hero-loc { opacity: 0.9; }
+
+/* solid white pill so the Google colours + stars read clearly on the dark hero */
+.g-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.30);
+}
+.g-stars { color: #FBBC05; font-size: 14px; letter-spacing: 1.5px; line-height: 1; }
+.g-word {
+  display: inline-flex; font-family: var(--font-heading); font-weight: 800;
+  font-size: 17px; letter-spacing: 0; text-transform: none; line-height: 1;
+}
+.g-word b { font-weight: 800; }
+.g-blue { color: #4285F4; }
+.g-red { color: #EA4335; }
+.g-yellow { color: #F9AB00; } /* slightly deeper amber so it stays legible on white */
+.g-green { color: #34A853; }
+.g-rated {
+  font-family: var(--font-heading); font-weight: 800; font-size: 14px;
+  letter-spacing: 0.02em; text-transform: none; color: #2b2126; line-height: 1;
+}
+
+/* ============================================================================
+   Reviews slider + textual team cards
+   ========================================================================== */
+
+/* --- team: drop the initials circles, lead with prominent text ----------- */
+
+.team-grid { counter-reset: member; }
+.member { padding: 32px 28px; gap: 10px; counter-increment: member; }
+.member::before {
+  content: counter(member, decimal-leading-zero);
+  font-family: var(--font-heading); font-weight: 800; font-size: 13px;
+  letter-spacing: 0.08em; color: var(--color-accent-700);
+}
+.member-name { font-size: 26px; line-height: 1.14; margin-top: 2px; }
+.member-role { margin-top: -4px; font-size: 12px; }
+.member-bio { font-size: 14.5px; line-height: 23px; margin-top: 4px; }
+
+/* --- reviews (full-width blush band) ------------------------------------- */
+
+.reviews { background: var(--color-surface); }
+.reviews .wrap { padding-block: 76px; }
+
+.reviews-head { text-align: center; max-width: 720px; margin: 0 auto; }
+.reviews-head .kicker { margin-left: auto; margin-right: auto; }
+.reviews-rating {
+  display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 8px 14px; margin-top: 18px;
+}
+.reviews-rating .g-word { font-size: 21px; }
+.reviews-score { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 800; }
+.reviews-score .num { font-size: 21px; }
+.reviews-rating .g-stars { color: #FBBC05; font-size: 16px; letter-spacing: 1.5px; }
+.reviews-count { color: var(--color-neutral-600); font-size: 14px; }
+
+.reviews-slider {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center; gap: clamp(8px, 3vw, 28px); margin-top: 40px;
+}
+.reviews-viewport { overflow: hidden; }
+.reviews-track { display: flex; transition: transform .55s cubic-bezier(.4, 0, .2, 1); }
+@media (prefers-reduced-motion: reduce) { .reviews-track { transition: none; } }
+
+.review {
+  flex: 0 0 100%; min-width: 100%; margin: 0;
+  padding: 4px clamp(4px, 4vw, 56px);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.review::before {
+  content: "\201C"; font-family: var(--font-display); font-weight: 600;
+  font-size: 88px; line-height: 0.72; color: color-mix(in srgb, var(--color-accent) 34%, transparent);
+}
+.review-stars { color: #FBBC05; letter-spacing: 3px; font-size: 15px; margin: 12px 0 20px; }
+.review-quote {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: clamp(20px, 2.35vw, 27px); line-height: 1.42; letter-spacing: -0.01em;
+  max-width: 42ch;
+}
+.review-by { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.review-name { font-family: var(--font-heading); font-weight: 800; font-size: 16px; font-style: normal; }
+.review-lg {
+  display: inline-block; margin-left: 8px; vertical-align: middle;
+  font-family: var(--font-heading); font-weight: 800; font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-600);
+  border: 1px solid var(--color-divider); border-radius: 999px; padding: 2px 8px;
+}
+.review-meta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); }
+
+.rev-arrow {
+  width: 48px; height: 48px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider); background: var(--color-bg);
+  color: var(--color-text); font-size: 22px; line-height: 1; cursor: pointer;
+  display: grid; place-items: center;
+  transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+.rev-arrow:hover { border-color: var(--color-accent); color: var(--color-accent); }
+/* on phones, drop the side arrows so the quote gets full width — swipe + dots navigate */
+@media (max-width: 600px) {
+  .reviews-slider { grid-template-columns: 1fr; }
+  .rev-arrow { display: none; }
+  .review { padding-inline: 4px; }
+}
+
+.reviews-dots { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+.reviews-dots button {
+  width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; cursor: pointer;
+  background: color-mix(in srgb, var(--color-text) 22%, transparent);
+  transition: background-color .2s ease, width .2s ease;
+}
+.reviews-dots button:hover { background: color-mix(in srgb, var(--color-text) 42%, transparent); }
+.reviews-dots button[aria-selected="true"] { background: var(--color-accent); width: 26px; }
+
+.reviews-cta { text-align: center; margin-top: 24px; }
+
+/* ============================================================================
+   Photo galleries — salon space (masonry) + nail showcase. Shown in full colour.
+   ========================================================================== */
+
+/* --- "Step inside" salon gallery (masonry via CSS columns) --------------- */
+
+.gallery { columns: 3 260px; column-gap: 16px; margin-top: 40px; }
+.gallery-item {
+  break-inside: avoid; margin: 0 0 16px;
+  border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+.gallery-item img {
+  width: 100%; height: auto; display: block;
+  transition: transform .4s ease;
+}
+.gallery-item:hover img { transform: scale(1.04); }
+@media (max-width: 560px) { .gallery { columns: 2 150px; column-gap: 12px; } .gallery-item { margin-bottom: 12px; } }
+
+/* --- nail showcase ------------------------------------------------------- */
+
+.nailwork-head { max-width: 640px; }
+.nailwork-head .btn { margin-top: 26px; }
+.nail-gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 20px);
+  margin-top: 40px;
+}
+.nail-shot {
+  border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface);
+  box-shadow: var(--shadow-sm); aspect-ratio: 4 / 5;
+}
+.nail-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.nail-shot:hover img { transform: scale(1.05); }
+@media (max-width: 620px) {
+  .nail-gallery { grid-template-columns: 1fr 1fr; }
+  .nail-shot:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
 }
