@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Colour bar at the studio">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e4e0db"/>
+      <stop offset="1" stop-color="#b8b1a9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.28" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softb"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="grain2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#wall)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+
+  <!-- tiled splashback -->
+  <g stroke="#8f8981" stroke-width="1.5" opacity="0.35">
+    <path d="M0 90h800M0 180h800M0 270h800"/>
+    <path d="M100 0v270M200 0v270M300 0v270M400 0v270M500 0v270M600 0v270M700 0v270"/>
+  </g>
+
+  <!-- shelf -->
+  <rect x="0" y="332" width="800" height="12" fill="#3b3733" opacity="0.75"/>
+  <rect x="0" y="344" width="800" height="26" fill="#3b3733" opacity="0.2"/>
+
+  <!-- bottles on the shelf -->
+  <g fill="#2f2b28">
+    <rect x="70" y="238" width="46" height="94" rx="4" opacity="0.85"/>
+    <rect x="82" y="222" width="22" height="18" rx="3" opacity="0.85"/>
+    <rect x="140" y="262" width="34" height="70" rx="4" opacity="0.7"/>
+    <rect x="150" y="248" width="14" height="16" rx="2" opacity="0.7"/>
+    <rect x="198" y="248" width="52" height="84" rx="6" opacity="0.55"/>
+    <rect x="600" y="252" width="40" height="80" rx="4" opacity="0.8"/>
+    <rect x="612" y="236" width="16" height="18" rx="2" opacity="0.8"/>
+    <rect x="662" y="272" width="30" height="60" rx="4" opacity="0.6"/>
+  </g>
+
+  <!-- mixing bowl + brush -->
+  <g>
+    <path d="M300 420h180l-22 78a26 26 0 0 1-25 20h-86a26 26 0 0 1-25-20z" fill="#26221f" opacity="0.9"/>
+    <ellipse cx="390" cy="420" rx="90" ry="20" fill="#4a443f"/>
+    <ellipse cx="390" cy="420" rx="72" ry="14" fill="#151312" opacity="0.55"/>
+    <rect x="430" y="300" width="10" height="150" rx="5" transform="rotate(24 435 375)" fill="#26221f" opacity="0.9"/>
+    <path d="M470 292l26 12-18 34-24-14z" fill="#151312" opacity="0.85"/>
+  </g>
+
+  <!-- towels -->
+  <g fill="#3b3733" opacity="0.35">
+    <rect x="560" y="430" width="180" height="26" rx="4"/>
+    <rect x="574" y="462" width="152" height="24" rx="4"/>
+    <rect x="588" y="492" width="124" height="22" rx="4"/>
+  </g>
+
+  <ellipse cx="220" cy="140" rx="220" ry="150" fill="#ffffff" opacity="0.18" filter="url(#softb)"/>
+  <rect width="800" height="600" filter="url(#grain2)" opacity="0.14"/>
+</svg>
