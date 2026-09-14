@@ -149,72 +149,102 @@
         return;
       }
 
-      var name = String(new FormData(form).get('name')).trim().split(/\s+/)[0];
+      var fd = new FormData(form);
+      var name = String(fd.get('name')).trim().split(/\s+/)[0];
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var submitLabel = submitBtn.textContent;
 
-      // No backend yet. Point the <form> at Formspree/Netlify Forms, or replace
-      // this block with a fetch() to your endpoint, to actually deliver the message.
-      status.hidden = false;
-      status.textContent = 'Thanks, ' + name + ' — your message has been noted. '
-        + 'We’ll reply by email. For anything urgent, call or text (224) 275-1714.';
+      // Deliver via Web3Forms (free, no backend). Submissions email the studio;
+      // the access_key + honeypot live in the form's hidden fields.
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      status.hidden = true;
+      status.classList.remove('is-error');
 
-      form.reset();
-      $$('.input', form).forEach(function (field) { showError(field, ''); });
-      status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+        .then(function (r) { return r.json(); })
+        .then(function (json) {
+          if (!json.success) throw new Error(json.message || 'Submission failed');
+          status.textContent = 'Thanks, ' + name + ' — your message is on its way. '
+            + 'We’ll reply by email. For anything urgent, call or text (224) 275-1714.';
+          form.reset();
+          $$('.input', form).forEach(function (field) { showError(field, ''); });
+        })
+        .catch(function () {
+          status.classList.add('is-error');
+          status.textContent = 'Sorry — your message could not be sent just now. '
+            + 'Please email bornbeautesalon@gmail.com or call (224) 275-1714.';
+        })
+        .then(function () {
+          status.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitLabel;
+          status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        });
     });
   }
 
-  /* --- gift card: pick an amount, the card lights up ---------------------- */
+  /* --- gift card 3D showcase (decorative — navigation only) --------------- */
 
-  var giftAmounts = $('#giftAmounts');
-  if (giftAmounts) {
-    var chips = $$('.chip', giftAmounts);
-    var giftCard = $('#giftCard');
-    var giftAmount = $('#giftAmount');
-    var giftBuy = $('#giftBuy');
-    var customWrap = $('#giftCustom');
-    var customInput = $('#giftCustomInput');
+  var gcardStage = $('#gcardStage');
+  if (gcardStage) {
+    var gcards = $$('.gcard', gcardStage);
+    var gcardDots = $('#gcardDots');
+    var gcardSlider = $('#gcardSlider');
+    var gcardN = gcards.length;
+    var gcardActive = 0;
 
-    var renderAmount = function (value) {
-      giftCard.classList.add('is-active');
-      // retrigger the pop animation on every change
-      giftCard.classList.remove('is-pulse');
-      void giftCard.offsetWidth;
-      giftCard.classList.add('is-pulse');
+    var gcardDotButtons = gcards.map(function (card, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', (card.dataset.title || ('Design ' + (i + 1))) + ', ' + (i + 1) + ' of ' + gcardN);
+      dot.addEventListener('click', function () { gcardGo(i); });
+      gcardDots.appendChild(dot);
+      return dot;
+    });
 
-      if (value) {
-        giftAmount.textContent = '$' + value;
-        giftBuy.textContent = 'Buy a $' + value + ' gift card';
-      } else {
-        giftAmount.textContent = '$—';
-        giftBuy.textContent = 'Buy a gift card';
-      }
-    };
+    function gcardRender() {
+      gcards.forEach(function (card, i) {
+        var pos = (i - gcardActive + gcardN) % gcardN;
+        card.setAttribute('data-pos', pos);
+        card.setAttribute('aria-hidden', pos === 0 ? 'false' : 'true');
+      });
+      gcardDotButtons.forEach(function (d, di) {
+        d.setAttribute('aria-selected', di === gcardActive ? 'true' : 'false');
+      });
+    }
+    function gcardGo(i) { gcardActive = (i + gcardN) % gcardN; gcardRender(); }
+    function gcardNext() { gcardGo(gcardActive + 1); }
+    function gcardPrev() { gcardGo(gcardActive - 1); }
 
-    var customChip = giftAmounts.querySelector('[data-amount="custom"]');
+    $('#gcardNext').addEventListener('click', gcardNext);
+    $('#gcardPrev').addEventListener('click', gcardPrev);
 
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        chips.forEach(function (c) { c.classList.remove('is-selected'); });
-        chip.classList.add('is-selected');
-
-        if (chip.dataset.amount === 'custom') {
-          customWrap.hidden = false;
-          customChip.setAttribute('aria-expanded', 'true');
-          customInput.focus();
-          var v = Number(customInput.value);
-          renderAmount(v > 0 ? v : '');
-        } else {
-          customWrap.hidden = true;
-          customChip.setAttribute('aria-expanded', 'false');
-          renderAmount(chip.dataset.amount);
-        }
+    // click a card behind the front one to bring it forward
+    gcards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        if (card.getAttribute('data-pos') !== '0') gcardGo(i);
       });
     });
 
-    customInput.addEventListener('input', function () {
-      var v = Number(customInput.value);
-      renderAmount(v > 0 ? v : '');
+    // arrow keys when the slider (or a control inside it) has focus
+    gcardSlider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); gcardNext(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); gcardPrev(); }
     });
+
+    // touch swipe
+    var gcardX = null;
+    gcardStage.addEventListener('touchstart', function (e) { gcardX = e.touches[0].clientX; }, { passive: true });
+    gcardStage.addEventListener('touchend', function (e) {
+      if (gcardX === null) return;
+      var dx = e.changedTouches[0].clientX - gcardX;
+      if (Math.abs(dx) > 40) { dx < 0 ? gcardNext() : gcardPrev(); }
+      gcardX = null;
+    });
+
+    gcardRender();
   }
 
   /* --- reviews slider ----------------------------------------------------- */

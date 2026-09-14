@@ -13,14 +13,35 @@
 <meta property="og:title" content="Born Beaut&eacute; &mdash; Beauty Studio in Arlington Heights, IL">
 <meta property="og:description" content="Full-service hair, nails, brows, lashes and makeup. Personalised service from a team that treats your hair as their art. Google Rated 2025.">
 <meta property="og:url" content="https://bornbeautystudio.square.site/">
-<meta property="og:image" content="https://bornbeautystudio.square.site/">
+<meta property="og:image" content="https://bornbeautystudio.square.site/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Born Beaut&eacute; &mdash; hair, colour, nails and beauty in Arlington Heights, IL">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bornbeautystudio.square.site/assets/img/og.jpg">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v=2">
 <script>document.documentElement.classList.add('js');</script>
+
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with the studio's Measurement ID
+     to switch it on. Until then this makes NO external requests. -->
+<script>
+  window.GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  (function () {
+    var id = window.GA_MEASUREMENT_ID;
+    if (!id || id.indexOf('XXXX') !== -1) return;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', id);
+  })();
+</script>
 
 <script type="application/ld+json">
 {
@@ -32,7 +53,9 @@
   "telephone": "+1-224-275-1714",
   "email": "bornbeautesalon@gmail.com",
   "priceRange": "$$",
-  "image": "https://bornbeautystudio.square.site/",
+  "image": "https://bornbeautystudio.square.site/assets/img/og.jpg",
+  "sameAs": ["https://www.instagram.com/bornbeautechicago_salon"],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "227" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1050 S Arlington Heights Rd",
@@ -48,6 +71,22 @@
   ]
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do I need a consultation before a colour service?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every hair-colour service starts with a free in-person consultation so we can assess your hair, agree on the result, give an accurate quote and set aside the right amount of time. Colour booked without a prior consultation may need to be rescheduled." } },
+    { "@type": "Question", "name": "How do I book an appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Book online through Square using any Book appointment button — you choose your specialist, service and time — or call or text (224) 275-1714. Nothing is charged until you are in the chair." } },
+    { "@type": "Question", "name": "What are your hours?", "acceptedAnswer": { "@type": "Answer", "text": "Monday to Wednesday 10 am to 7 pm, Thursday and Friday 10 am to 8 pm, and Saturday and Sunday 9 am to 4 pm. Phone support runs Monday to Friday 10 am to 5 pm and weekends 9 am to 4 pm; outside those hours, text, leave a voicemail or DM us on Instagram." } },
+    { "@type": "Question", "name": "Do you take children, and is pricing different?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Children's haircut pricing applies to ages 2 to 10; for guests over 10, adult pricing applies." } },
+    { "@type": "Question", "name": "What products and brands do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Colour is mixed with the Spectra system for a personalised formula, then finished with Olaplex to protect and rebuild the hair. Extensions are hand-tied KOVI Hair, a premium luxury brand." } },
+    { "@type": "Question", "name": "How do hair extensions and maintenance work?", "acceptedAnswer": { "@type": "Answer", "text": "We work exclusively with hand-tied KOVI extensions, and every extension service begins with a consultation to customise colour, length, volume and placement. Maintenance is recommended every 8 to 10 weeks." } },
+    { "@type": "Question", "name": "Do you offer gift cards?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — a Born Beauté gift card is redeemable across every service in the studio. Choose a design, pick your amount and message, and send it by text or email." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -55,7 +94,10 @@
 
 <header class="site-header" id="siteHeader">
   <nav class="nav" aria-label="Primary">
-    <a class="nav-brand" href="#top">Born Beaut&eacute;</a>
+    <a class="nav-brand" href="#top" aria-label="Born Beaut&eacute; Salon — home">
+      <span class="brand-name">Born Beaut&eacute;</span>
+      <span class="brand-sub">Salon</span>
+    </a>
 
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
@@ -64,6 +106,7 @@
       <a href="#team">Team</a>
       <a href="#reviews">Reviews</a>
       <a href="#gift">Gift cards</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
 
@@ -83,7 +126,8 @@
       <video class="grayscale" autoplay muted loop playsinline preload="auto"
              poster="assets/img/hero.svg"
              aria-label="Born Beaut&eacute; studio brand animation">
-        <source src="assets/video/hero.mp4" type="video/mp4">
+        <source src="assets/video/hero.webm?v=2" type="video/webm">
+        <source src="assets/video/hero.mp4?v=2" type="video/mp4">
         <img src="assets/img/hero.svg" alt="The Born Beaut&eacute; studio" width="1600" height="1000">
       </video>
     </div>
@@ -133,7 +177,7 @@
     <!-- ==================== about ==================== -->
     <section class="section about reveal" id="about" aria-labelledby="about-title">
       <figure class="about-media">
-        <img src="assets/img/studio.jpg" alt="A Born Beaut&eacute; client with a fresh blonde balayage, styled in the studio" width="1425" height="2016" loading="lazy">
+        <img src="assets/img/studio.jpg" alt="A Born Beaut&eacute; client with a fresh blonde balayage, styled in the studio" width="900" height="1274" loading="lazy">
       </figure>
       <div>
         <span class="kicker">The studio</span>
@@ -435,54 +479,63 @@
 
       <div class="team-grid">
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/halyna.jpg" alt="Halyna Pylypchuk, Hairdresser &amp; Colourist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Halyna Pylypchuk</p>
           <p class="member-role">Hairdresser &amp; Colourist &middot; 13+ yrs</p>
           <p class="member-bio">A hairdresser with more than 13 years&rsquo; experience who loves to create beauty. Halyna works across dyeing techniques tailored to your wishes while keeping the look luxurious, and only ever uses high-quality materials and tools. Attentive to detail, she believes good hair adds confidence.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/olya-miciu.jpg" alt="Olya Miciu, Hair Extension Specialist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Olya Miciu</p>
           <p class="member-role">Hair Extension Specialist &middot; 10+ yrs</p>
           <p class="member-bio">A professional hairstylist with over 10 years in the industry, specialising in natural-looking transformations with a focus on hair health &mdash; hand-tied KOVI extensions, balayage, keratin, hair botox and nanoplasty. Every extension service begins with a consultation to customise colour, length and placement.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/olena.jpg" alt="Olena, Master Hairdresser" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Olena</p>
           <p class="member-role">Master Hairdresser &middot; 16 yrs</p>
           <p class="member-bio">A master hairdresser with 16 years&rsquo; experience across women&rsquo;s, men&rsquo;s and children&rsquo;s haircuts. Olena believes the right cut changes a person and emphasises their individuality, and will choose the colour, care and styling to complete a unique look.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/diana.jpg" alt="Diana Moseichuck, Lash &amp; Brow Artist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Diana Moseichuck</p>
           <p class="member-role">Lash &amp; Brow Artist</p>
           <p class="member-bio">A lash &amp; brow artist who genuinely loves her craft &mdash; all types of lash extensions, lash lifts, brow lamination, shaping and tinting. Diana values precision, natural-yet-beautiful results and a personalised approach, so every client leaves feeling more confident.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/luda.jpg" alt="Luda Oliinyk, Hair Stylist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Luda Oliinyk</p>
           <p class="member-role">Hair Stylist &middot; 6 yrs</p>
           <p class="member-bio">A stylist with six years&rsquo; experience, countless styles and one mission: turning hair into art. Luda brings creativity, precision and a touch of magic to every look.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/polina.jpg" alt="Polina Lutitskaia, Hairdresser &amp; Colourist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Polina Lutitskaia</p>
           <p class="member-role">Hairdresser &amp; Colourist &middot; 18 yrs</p>
           <p class="member-bio">A hairdresser and colourist with 18 years in the industry, specialising in women&rsquo;s haircuts and colour of all levels of complexity. Polina combines modern technique with a strong focus on hair health, shape and results customised to each client.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/olya-garasymchuk.jpg" alt="Olya Garasymchuk, Nail Artist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Olya Garasymchuk</p>
           <p class="member-role">Nail Artist</p>
           <p class="member-bio">A nail artist passionate about helping clients feel confident and beautiful through quality nail care. Olya is dedicated to a relaxing experience with close attention to detail, cleanliness and comfort &mdash; from a classic manicure to a fresh new set.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/anna.jpg" alt="Anna Skopych, Top Nail Artist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Anna Skopych</p>
           <p class="member-role">Top Nail Artist &middot; 10+ yrs</p>
           <p class="member-bio">A highly skilled nail artist with over 10 years&rsquo; experience. Originally from Kyiv, where she owned and ran her own studio, Anna specialises in elegant designs, structured gel overlays and natural nail care, always focused on the health and beauty of her clients&rsquo; nails.</p>
         </article>
 
         <article class="member">
+          <figure class="member-photo"><img src="assets/team/andrea.jpg" alt="Andr&eacute;a Mil&eacute;o, Makeup Artist" width="600" height="900" loading="lazy"></figure>
           <p class="member-name">Andr&eacute;a Mil&eacute;o</p>
           <p class="member-role">Makeup Artist</p>
           <p class="member-bio">A makeup artist specialising in soft glam and flawless, natural-looking beauty &mdash; enhancing your glow for every special moment, from everyday looks to bridal, photoshoots and prom.</p>
@@ -584,39 +637,124 @@
   <div class="wrap">
     <!-- ==================== gift cards ==================== -->
     <section class="section reveal" id="gift" aria-labelledby="gift-title">
-      <div class="gift">
-        <div class="gift-copy">
-          <span class="kicker">Gift cards</span>
-          <h2 class="h2" id="gift-title">Give the perfect gift.</h2>
-          <p class="lede">Treat yourself or someone else to a voucher, redeemable across every service in the studio. Pick an amount &mdash; the card lights up &mdash; then add a message and send it by text or email.</p>
-          <div class="gift-amounts" id="giftAmounts" role="group" aria-label="Choose a gift card amount">
-            <button type="button" class="chip" data-amount="50">$50</button>
-            <button type="button" class="chip" data-amount="100">$100</button>
-            <button type="button" class="chip" data-amount="150">$150</button>
-            <button type="button" class="chip" data-amount="200">$200</button>
-            <button type="button" class="chip" data-amount="custom" aria-expanded="false" aria-controls="giftCustom">Custom</button>
-          </div>
-          <div class="gift-custom" id="giftCustom" hidden>
-            <span class="gift-custom-prefix" aria-hidden="true">$</span>
-            <label class="visually-hidden" for="giftCustomInput">Custom gift card amount in dollars</label>
-            <input class="input num" type="number" min="10" step="5" inputmode="numeric" placeholder="Amount" id="giftCustomInput">
-          </div>
-          <a class="btn btn-primary btn-lg" id="giftBuy" href="https://squareup.com/gift/C527RFA072WWY/order" target="_blank" rel="noopener">Buy a gift card</a>
+      <div class="gift-head">
+        <span class="kicker">Gift cards</span>
+        <h2 class="h2" id="gift-title">Give the perfect gift.</h2>
+        <p class="lede">A voucher for any service in the studio &mdash; hair, colour, nails, brows, lashes or makeup.</p>
+      </div>
+
+      <div class="gcard-slider" id="gcardSlider" role="group" aria-roledescription="carousel" aria-label="Gift card designs" tabindex="0">
+        <button type="button" class="gcard-arrow gcard-prev" id="gcardPrev" aria-label="Previous design">&#8249;</button>
+
+        <div class="gcard-stage" id="gcardStage">
+          <article class="gcard gcard--birthday" data-title="Birthday" role="group" aria-roledescription="slide" aria-label="Birthday design, 1 of 3">
+            <div class="gcard-face">
+              <span class="gcard-pattern" aria-hidden="true"></span>
+              <svg class="gcard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                <rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 13h18M12 9v12"/>
+                <path d="M12 9c-1-2.6-2.6-4-4.2-3.4C6.4 6 6.6 8 8.3 8.6c1 .3 2.4.4 3.7.4zM12 9c1-2.6 2.6-4 4.2-3.4C17.6 6 17.4 8 15.7 8.6c-1 .3-2.4.4-3.7.4z"/>
+              </svg>
+              <div class="gcard-row gcard-row-top">
+                <span class="gcard-brand">Born Beaut&eacute;</span>
+                <span class="gcard-kind">Gift Card</span>
+              </div>
+              <div class="gcard-row gcard-row-bottom">
+                <span class="gcard-chip" aria-hidden="true"></span>
+                <span class="gcard-occasion">Birthday</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gcard gcard--thanks" data-title="Thank You" role="group" aria-roledescription="slide" aria-label="Thank You design, 2 of 3">
+            <div class="gcard-face">
+              <span class="gcard-pattern" aria-hidden="true"></span>
+              <svg class="gcard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                <path d="M12 20.5S3.5 15.4 3.5 9.6C3.5 6.9 5.5 5 8 5c1.9 0 3.2 1.1 4 2.4C12.8 6.1 14.1 5 16 5c2.5 0 4.5 1.9 4.5 4.6 0 5.8-8.5 10.9-8.5 10.9z"/>
+              </svg>
+              <div class="gcard-row gcard-row-top">
+                <span class="gcard-brand">Born Beaut&eacute;</span>
+                <span class="gcard-kind">Gift Card</span>
+              </div>
+              <div class="gcard-row gcard-row-bottom">
+                <span class="gcard-chip" aria-hidden="true"></span>
+                <span class="gcard-occasion">Thank You</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gcard gcard--holiday" data-title="Holiday" role="group" aria-roledescription="slide" aria-label="Holiday design, 3 of 3">
+            <div class="gcard-face">
+              <span class="gcard-pattern" aria-hidden="true"></span>
+              <svg class="gcard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/>
+                <path d="M12 5.5l-2 2M12 5.5l2 2M12 18.5l-2-2M12 18.5l2-2M5.5 12l2-2M5.5 12l2 2M18.5 12l-2-2M18.5 12l-2 2"/>
+              </svg>
+              <div class="gcard-row gcard-row-top">
+                <span class="gcard-brand">Born Beaut&eacute;</span>
+                <span class="gcard-kind">Gift Card</span>
+              </div>
+              <div class="gcard-row gcard-row-bottom">
+                <span class="gcard-chip" aria-hidden="true"></span>
+                <span class="gcard-occasion">Holiday</span>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div class="gift-visual">
-          <div class="giftcard" id="giftCard" aria-hidden="true">
-            <div class="giftcard-top">
-              <span class="giftcard-brand">Born Beaut&eacute;</span>
-              <span class="giftcard-label">Gift Card</span>
-            </div>
-            <span class="giftcard-chip"></span>
-            <div class="giftcard-bottom">
-              <span class="giftcard-dots">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;</span>
-              <span class="giftcard-amount" id="giftAmount">$&mdash;</span>
-            </div>
-          </div>
-        </div>
+        <button type="button" class="gcard-arrow gcard-next" id="gcardNext" aria-label="Next design">&#8250;</button>
+      </div>
+
+      <div class="gcard-dots" id="gcardDots" role="tablist" aria-label="Gift card design"></div>
+
+      <div class="gift-cta">
+        <p class="gift-note">A few of our designs &mdash; pick your favourite, your amount, and add a message on the next step.</p>
+        <a class="btn btn-primary btn-lg" href="https://squareup.com/gift/C527RFA072WWY/order" target="_blank" rel="noopener">Buy a Gift Card &rarr;</a>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <!-- ==================== faq ==================== -->
+    <section class="section reveal" id="faq" aria-labelledby="faq-title">
+      <span class="kicker">Good to know</span>
+      <h2 class="h2" id="faq-title">Before your visit.</h2>
+      <p class="lede">A few answers to the questions we hear most &mdash; anything else, just call or text the studio.</p>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Do I need a consultation before a colour service?</summary>
+          <div class="faq-body"><p>Yes &mdash; every hair-colour service starts with an in-person consultation so we can assess your hair, agree on the result, give an accurate quote and set aside the right amount of time. Colour booked without a prior consultation may need to be rescheduled. The consultation itself is free.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I book an appointment?</summary>
+          <div class="faq-body"><p>Book online through Square using any <a href="https://book.squareup.com/appointments/xsdtsxnj271orj/location/1VKSYSMB8RVQY/services" target="_blank" rel="noopener">Book appointment</a> button &mdash; you choose your specialist, service and time. Prefer to talk it through? Call or text <a href="tel:+12242751714" class="num">(224) 275-1714</a>. Nothing is charged until you&rsquo;re in the chair.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are your hours, and how quickly will you reply?</summary>
+          <div class="faq-body"><p>The studio is open Monday&ndash;Wednesday 10&nbsp;am&ndash;7&nbsp;pm, Thursday&ndash;Friday 10&nbsp;am&ndash;8&nbsp;pm, and Saturday&ndash;Sunday 9&nbsp;am&ndash;4&nbsp;pm. Phone support runs Mon&ndash;Fri 10&nbsp;am&ndash;5&nbsp;pm and Sat&ndash;Sun 9&nbsp;am&ndash;4&nbsp;pm &mdash; outside those hours, text us, leave a voicemail, or send a DM on <a href="https://www.instagram.com/bornbeautechicago_salon" target="_blank" rel="noopener">Instagram</a> and we&rsquo;ll get back to you.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you take children, and is pricing different?</summary>
+          <div class="faq-body"><p>We do. Children&rsquo;s haircut pricing applies to ages 2&ndash;10; for guests over 10, adult pricing applies. You&rsquo;ll find children&rsquo;s cuts in the full menu above.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What products and brands do you use?</summary>
+          <div class="faq-body"><p>Colour is mixed with the Spectra system for a personalised formula, then finished with Olaplex to protect and rebuild the hair. Extensions are hand-tied KOVI Hair &mdash; a premium luxury brand chosen for quality, durability and flawless blending.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do hair extensions and maintenance work?</summary>
+          <div class="faq-body"><p>We work exclusively with hand-tied KOVI extensions, and every extension service begins with a consultation to customise colour, length, volume and placement. Maintenance is recommended every 8&ndash;10 weeks to keep them sitting perfectly.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you offer gift cards?</summary>
+          <div class="faq-body"><p>Yes &mdash; a Born Beaut&eacute; gift card is redeemable across every service in the studio. <a href="#gift">Choose a design</a>, pick your amount and message, and send it by text or email.</p></div>
+        </details>
       </div>
     </section>
 
@@ -629,7 +767,11 @@
       <p class="lede">Let us know if there&rsquo;s anything we can do for you &mdash; questions about a service, a consultation, or a special occasion.</p>
 
       <div class="contact-layout">
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="9fce0756-ad87-43ef-be99-6422553fd58c">
+          <input type="hidden" name="subject" value="New enquiry from the Born Beaut&eacute; website">
+          <input type="hidden" name="from_name" value="Born Beaut&eacute; website">
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-grid">
             <label class="field field--full">
               <span>Full name</span>
@@ -654,7 +796,7 @@
 
           <div class="form-foot">
             <button class="btn btn-primary btn-lg" type="submit">Submit</button>
-            <p class="form-fine">You may receive marketing and promotional materials. Contact the studio for their privacy practices.</p>
+            <p class="form-fine">You may receive marketing and promotional materials. See our <a href="privacy.html">privacy policy</a> for how we handle your details.</p>
           </div>
         </form>
 
@@ -693,10 +835,15 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <p class="footer-brand">Born Beaut&eacute;</p>
+        <p class="footer-brand">
+          <span class="brand-lockup">
+            <span class="brand-name">Born Beaut&eacute;</span>
+            <span class="brand-sub">Salon</span>
+          </span>
+        </p>
         <p class="footer-about">A full-service beauty studio in Arlington Heights &mdash; hair, nails, brows, lashes and makeup, delivered by a team that treats your hair as their art.</p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/" rel="noopener noreferrer nofollow" target="_blank">Instagram</a>
+          <a href="https://www.instagram.com/bornbeautechicago_salon" rel="noopener noreferrer" target="_blank">Instagram</a>
           <a href="https://squareup.com/gift/C527RFA072WWY/order" rel="noopener noreferrer" target="_blank">Gift cards</a>
         </div>
       </div>
@@ -707,6 +854,8 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#menu">Full menu</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://book.squareup.com/appointments/xsdtsxnj271orj/location/1VKSYSMB8RVQY/services" target="_blank" rel="noopener">My bookings</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -732,7 +881,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; <span id="year">2026</span> Born Beaut&eacute;</span>
+      <span>&copy; <span id="year">2026</span> Born Beaut&eacute; &middot; <a href="privacy.html">Privacy</a></span>
       <span class="eyebrow">Google Rated 2025</span>
     </div>
   </div>
@@ -746,6 +895,6 @@
 
 <button type="button" class="to-top" id="toTop" aria-label="Back to top">&#8593;</button>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>

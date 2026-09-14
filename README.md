@@ -40,13 +40,22 @@ buttons, rounded and arched imagery, circular team avatars, and a warm tone on
 the photography. The palette + type live in the token block and the "Atelier
 layer" at the bottom of `styles.css` — retune there.
 
-## Interactive gift card
+## Gift cards — decorative 3D showcase
 
-In the Gift cards section, the amount chips ($50–$200 or a custom value) are
-buttons: picking one selects it and the on-page card visual "lights up" (rose →
-gold gradient) with the chosen amount, and the CTA label updates. Logic lives in
-the "gift card" block of `main.js`; the card is inline HTML/CSS (`.giftcard`), so
-there is no image to swap.
+The Gift cards section is a **display-only** 3D card stack, not a form. Three
+designs (Birthday / Thank You / Holiday), each a brand-gradient card face with an
+occasion icon, are fanned in CSS 3D perspective (`perspective` + per-card
+`rotateX/rotateY/translateZ/scale`, positioned by a `data-pos` attribute the JS
+sets). Prev/next arrows, dot indicators, arrow-key nav (when the slider is
+focused), touch swipe, and click-a-card-behind advance one design at a time with
+a ~550ms spring easing. Logic is the "gift card 3D showcase" block in `main.js`.
+
+It deliberately collects **no** data — no amount, message, or recipient inputs —
+because all of that is entered on Square's own checkout. The section's only job is
+visual delight and the single CTA (`Buy a Gift Card →`) to the Square gift URL.
+
+> Note: `index.html` loads `main.js?v=2` — bump that query when you change the JS
+> so browsers don't serve a stale cached copy.
 
 ## How booking, gift cards & contact work
 
@@ -108,3 +117,58 @@ filter to taste. Team members use initials avatars (no image files); swap
 > **Note:** `hero.mp4` is ~19 MB, which is heavy to load immediately. Compressing
 > it (and adding a WebM) with `ffmpeg` would speed up first paint, especially on
 > mobile.
+
+## Audit round — performance, SEO, FAQ, privacy (Sept 2026)
+
+- **Hero video compressed**: 18.7 MB → ~4 MB (H.264 MP4 + VP9 WebM, 1152w,
+  audio stripped). WebM is listed first so modern browsers get it, MP4 is the
+  Safari fallback. Re-encode from the master at
+  `Downloads/gmaps-video-1788890038.mp4` if you ever need to.
+- **studio.jpg**: 1.7 MB → 170 KB (900px wide).
+- **Real OG share image**: `assets/img/og.jpg` (1200×630) + og/twitter meta, so
+  links show a proper preview card. Regenerate via the PowerShell/GDI+ script if
+  branding changes.
+- **FAQ / policies** section (`#faq`, native `<details>` accordion) + `FAQPage`
+  JSON-LD for rich search results.
+- **Privacy policy** at `privacy.html`, linked from the footer and the contact
+  form fine-print.
+- **robots.txt** + **sitemap.xml** added.
+- **Instagram** now points to the real handle (`bornbeautechicago_salon`);
+  added to footer, FAQ, and JSON-LD `sameAs`.
+- **AggregateRating** (4.9 / 227) added to the BeautySalon JSON-LD.
+- **"My bookings"** link added to the footer (Square).
+- Removed the dead `.price-note` CSS rule.
+
+### Needs the client to finish
+
+- **Google Analytics**: the GA4 snippet is wired in `index.html` head but inert
+  (makes zero requests) until you replace `G-XXXXXXXXXX` with the real
+  Measurement ID.
+- **Favicon**: still the placeholder mark — swap once the real logo file is
+  provided (see the brand-logo section).
+- **Domain**: `canonical`, OG `url`s and the sitemap point at the square.site
+  address — update them when a custom domain is live.
+- **New-client / seasonal offer** and a **live Google-reviews widget** are still
+  open ideas — both need the client's input (offer terms / a widget account).
+
+## Cache-busting — the rule going forward
+
+`styles.css` and `main.js` are loaded with a `?v=N` query (`styles.css?v=2`,
+`main.js?v=3` — bump on any edit, in **both** `index.html` and `privacy.html`).
+Without it, browsers can keep serving the old file indefinitely after a normal
+reload — this bit us twice already (the hero badge glass effect not showing up,
+and `privacy.html` being missed the first time the CSS was versioned).
+
+The same applies to `hero.mp4` / `hero.webm` (already versioned) and, going
+forward, to **any photo that gets replaced in place** — a new headshot saved
+over `assets/team/halyna.jpg`, for example. When that happens, either rename
+the file or bump a `?v=` on its `src`, or visitors who loaded the page before
+will keep seeing the old photo.
+
+Two related caches this trick can't reach:
+- **Favicons** are cached separately and stubbornly by browsers; a query
+  string is not reliable. Ship a new filename instead when it's replaced.
+- **`og.jpg`** gets cached server-side by social platforms once a link is
+  scraped (Facebook, LinkedIn, etc.), independent of the browser entirely. A
+  design change there needs the platform's own "scrape again" tool, not a
+  version query.
