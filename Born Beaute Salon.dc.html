@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-a3e00e3c-346c-45e9-b634-19d864a9be18/styles.css">
+<script src="_ds/modernist-a3e00e3c-346c-45e9-b634-19d864a9be18/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); text-wrap: pretty; }
+a { color: var(--color-accent-700); text-decoration: none; }
+a:hover { color: var(--color-accent); }
+</style>
+</helmet>
+
+<div style="background: var(--color-bg)">
+
+  <div style="position: relative; background: var(--color-neutral-900); overflow: hidden">
+  <div style="position: absolute; inset: 0">
+    <div class="grayscale" style="position: absolute; inset: 0">
+      <image-slot id="salon-hero-bleed" shape="rect" style="width: 100%; height: 100%" placeholder="Full-bleed hero — stylist working, softly lit"></image-slot>
+    </div>
+    <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, rgba(20,19,18,0.88) 0%, rgba(20,19,18,0.72) 38%, rgba(20,19,18,0.28) 68%, rgba(20,19,18,0.15) 100%)"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 0; height: 140px; pointer-events: none; background: linear-gradient(to bottom, rgba(20,19,18,0.82) 0%, rgba(20,19,18,0.6) 55%, rgba(20,19,18,0) 100%)"></div>
+  </div>
+
+  <nav class="nav" style="position: relative; z-index: 2; background: transparent; color: var(--color-bg); border-bottom: 2px solid rgba(243,242,242,0.35); padding-inline: max(24px, calc((100% - 1240px) / 2 + 24px))">
+    <span class="nav-brand" style="font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em">Born Beauté</span>
+    <a href="#about" style="white-space: nowrap">About</a>
+    <a href="#services" style="white-space: nowrap">Services</a>
+    <a href="#pricing" style="white-space: nowrap">Price list</a>
+    <a href="#voices" style="white-space: nowrap">Clients</a>
+    <a href="#shop" style="white-space: nowrap">Shop</a>
+    <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-feature-settings: 'tnum' 1; white-space: nowrap">(212) 555 0184</span>
+    <a href="#book" class="btn btn-primary" style="text-decoration: none; white-space: nowrap; flex: none; color: var(--color-bg)">Book appointment</a>
+  </nav>
+
+  <section style="position: relative; z-index: 2; color: var(--color-bg); min-height: min(760px, 78vh); display: flex; flex-direction: column; justify-content: flex-end">
+    <div style="max-width: 1240px; margin: 0 auto; width: 100%; padding: 96px 24px 0; box-sizing: border-box">
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 20px">Beauty &amp; wellness studio — since 2013</span>
+      <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(48px, 8vw, 110px); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 0 -0.058em; max-width: 14ch">
+        <span style="display: block">Hair &amp;</span>
+        <span style="display: block">Beauty</span>
+        <span style="display: block">Salon</span>
+      </h1>
+      <p style="font-size: 17px; line-height: 28px; max-width: 42ch; margin: 32px 0 0">A twelve-chair studio on Elizabeth Street for hair, skin and hands. One stylist, one guest, no rush — every appointment ends with something you can repeat at home.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px">
+        <a href="#book" class="btn btn-primary" style="text-decoration: none; white-space: nowrap; flex: none; color: var(--color-bg)">Book appointment</a>
+        <a href="#services" class="btn btn-ghost" style="text-decoration: none; white-space: nowrap; flex: none; color: var(--color-bg); border: 2px solid var(--color-bg)">Our services</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 14px 56px; margin-top: 56px; border-top: 2px solid rgba(243,242,242,0.35); padding: 28px 0 40px">
+        <div>
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 34px; line-height: 40px; margin: 0 0 0 -0.045em">12</p>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 10px 0 0">Years open</p>
+        </div>
+        <div>
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 34px; line-height: 40px; margin: 0 0 0 -0.045em">5,000+</p>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 10px 0 0">Guests seated</p>
+        </div>
+        <div>
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 34px; line-height: 40px; margin: 0 0 0 -0.045em">4.9</p>
+          <p style="font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 10px 0 0">Average rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+
+    <div style="height: 56px"></div>
+
+    <section id="about" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px, 5vw, 88px); align-items: start; padding: 56px 0">
+      <figure class="grayscale" style="margin: 0">
+        <image-slot id="salon-about" shape="rect" style="width: 100%; aspect-ratio: 4 / 3" placeholder="Stylist at work, or product flatlay"></image-slot>
+      </figure>
+      <div>
+        <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px">The studio</span>
+        <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 0 -0.02em">Quiet rooms, plain advice, work that grows out well.</h2>
+        <p style="font-size: 16px; line-height: 28px; max-width: 52ch; margin: 24px 0 0">Wren Adeyemi opened Born Beauté in 2013 with two chairs and a rule that still holds: nobody leaves with a look they cannot manage themselves. Colour is mixed in the room, skin is read before it is treated, and the shop only carries what the team uses on the floor.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; margin-top: 32px; border-top: 2px solid var(--color-divider)">
+          <div style="border-bottom: 2px solid var(--color-divider); padding: 18px 0">
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; line-height: 20px; margin: 0">Certified specialists</p>
+            <p style="font-size: 14px; line-height: 22px; color: var(--color-neutral-700); margin: 6px 24px 0 0">Every colourist and aesthetician licensed and re-trained yearly.</p>
+          </div>
+          <div style="border-bottom: 2px solid var(--color-divider); padding: 18px 0">
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; line-height: 20px; margin: 0">Premium products</p>
+            <p style="font-size: 14px; line-height: 22px; color: var(--color-neutral-700); margin: 6px 24px 0 0">Ammonia-free colour lines and fragrance-free skincare only.</p>
+          </div>
+          <div style="border-bottom: 2px solid var(--color-divider); padding: 18px 0">
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; line-height: 20px; margin: 0">Unhurried rooms</p>
+            <p style="font-size: 14px; line-height: 22px; color: var(--color-neutral-700); margin: 6px 24px 0 0">One guest per stylist, so nobody is left under a timer.</p>
+          </div>
+          <div style="border-bottom: 2px solid var(--color-divider); padding: 18px 0">
+            <p style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; line-height: 20px; margin: 0">Flexible booking</p>
+            <p style="font-size: 14px; line-height: 22px; color: var(--color-neutral-700); margin: 6px 24px 0 0">Evenings until nine, free reschedule up to 24 hours ahead.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="services" style="padding: 56px 0">
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px">Services</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 0 -0.02em">Six rooms, one standard.</h2>
+      <p style="font-size: 16px; line-height: 28px; max-width: 54ch; margin: 20px 0 0">Prices are starting points — the consultation sets the final quote before any work begins.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; margin-top: 40px; background: var(--color-divider); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider)">
+        <sc-for list="{{ services }}" as="svc" hint-placeholder-count="6">
+          <article style="background: var(--color-bg); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px">
+              <p style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0; font-feature-settings: 'tnum' 1">{{ svc.num }}</p>
+              <span style="width: 10px; height: 10px; background: var(--color-accent); flex: none"></span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; line-height: 28px; letter-spacing: -0.01em; margin: 14px 0 0">{{ svc.name }}</h3>
+            <sc-if value="{{ showBlurbs }}" hint-placeholder-val="{{ true }}">
+              <p style="font-size: 15px; line-height: 24px; color: var(--color-neutral-700); margin: 0; max-width: 34ch">{{ svc.blurb }}</p>
+            </sc-if>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-top: 18px; border-top: 2px solid var(--color-divider); padding-top: 14px">
+              <p style="font-family: var(--font-heading); font-weight: 800; font-size: 17px; line-height: 22px; margin: 0; font-feature-settings: 'tnum' 1">{{ svc.price }}</p>
+              <a href="#book" style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">Learn more</a>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="pricing" style="padding: 56px 0">
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px">Price list</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 0 -0.02em">The menu, in full.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px clamp(32px, 6vw, 96px); margin-top: 44px">
+        <sc-for list="{{ priceGroups }}" as="group" hint-placeholder-count="3">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 18px; padding-bottom: 14px; border-bottom: 2px solid var(--color-divider)">{{ group.name }}</h3>
+            <sc-for list="{{ group.items }}" as="row" hint-placeholder-count="5">
+              <div style="display: flex; align-items: baseline; gap: 8px; padding: 9px 0">
+                <span style="font-size: 15.5px; line-height: 24px; flex: none">{{ row.label }}</span>
+                <span style="flex: 1; border-bottom: 1px dotted var(--color-divider); transform: translateY(-4px)"></span>
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 15.5px; line-height: 24px; flex: none; font-feature-settings: 'tnum' 1">{{ row.price }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <section id="voices" style="padding: 56px 0">
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px">Clients</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px clamp(32px, 5vw, 72px); margin-top: 8px">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+          <figure style="margin: 0; border-top: 2px solid var(--color-divider); padding-top: 24px">
+            <blockquote style="font-family: var(--font-heading); font-weight: 800; font-size: 21px; line-height: 30px; letter-spacing: -0.01em; margin: 0">{{ t.quote }}</blockquote>
+            <figcaption style="display: flex; align-items: center; gap: 12px; margin-top: 24px">
+              <span class="grayscale" style="flex: none; display: block; width: 44px; height: 44px">
+                <image-slot id="{{ t.slotId }}" shape="circle" style="width: 44px; height: 44px" placeholder=" "></image-slot>
+              </span>
+              <span>
+                <span style="display: block; font-size: 14px; line-height: 18px; font-family: var(--font-heading); font-weight: 800">{{ t.name }}</span>
+                <span style="display: block; font-size: 13px; line-height: 18px; letter-spacing: 0.08em; color: var(--color-accent-700)">{{ t.stars }}</span>
+              </span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </section>
+
+  </div>
+
+  <section id="book" style="background: var(--color-accent); color: var(--color-bg)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 84px 24px">
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 0 -0.058em">
+        <span style="display: block">A chair is open</span>
+        <span style="display: block">this week.</span>
+      </h2>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 36px">
+        <a href="#book" class="btn btn-ghost" style="color: var(--color-bg); border-color: var(--color-bg); text-decoration: none; white-space: nowrap; flex: none">Request appointment</a>
+        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; line-height: 32px; font-feature-settings: 'tnum' 1">(212) 555 0184</span>
+        <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">Tue–Sat 9–21 · Sun 10–17</span>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showShop }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+      <section id="shop" style="padding: 56px 0">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+          <div>
+            <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px">Shop</span>
+            <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 0 -0.02em">What we use on the floor.</h2>
+          </div>
+          <a href="#shop" style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">All products</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px clamp(24px, 3vw, 40px); margin-top: 40px">
+          <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+            <article style="display: flex; flex-direction: column; gap: 14px">
+              <figure class="grayscale" style="margin: 0">
+                <image-slot id="{{ p.slotId }}" shape="rect" style="width: 100%; aspect-ratio: 1 / 1" placeholder="Product shot"></image-slot>
+              </figure>
+              <div style="border-top: 2px solid var(--color-divider); padding-top: 12px">
+                <p style="font-family: var(--font-heading); font-weight: 800; font-size: 16px; line-height: 22px; margin: 0">{{ p.name }}</p>
+                <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-neutral-700); margin: 4px 0 0">{{ p.kind }}</p>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 16px; font-feature-settings: 'tnum' 1">{{ p.price }}</span>
+                <button type="button" class="btn btn-secondary" style="white-space: nowrap; flex: none">Add to cart</button>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <footer style="background: var(--color-neutral-900); color: var(--color-bg)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 28px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px clamp(24px, 4vw, 64px)">
+        <div>
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; margin: 0">Born Beauté</p>
+          <p style="font-size: 14px; line-height: 24px; margin: 16px 0 0; max-width: 30ch; color: var(--color-neutral-200)">A twelve-chair hair, skin and nail studio in Nolita. Licensed, unhurried, and honest about what your hair will actually do.</p>
+          <div style="display: flex; gap: 16px; margin-top: 20px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">
+            <a href="#shop" style="color: var(--color-bg)">Instagram</a>
+            <a href="#shop" style="color: var(--color-bg)">Pinterest</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 16px">Quick links</p>
+          <div style="display: grid; gap: 8px; font-size: 14px">
+            <a href="#about" style="color: var(--color-bg)">About</a>
+            <a href="#services" style="color: var(--color-bg)">Services</a>
+            <a href="#pricing" style="color: var(--color-bg)">Price list</a>
+            <a href="#shop" style="color: var(--color-bg)">Shop</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 16px">Hours</p>
+          <div style="display: grid; gap: 8px; font-size: 14px; line-height: 20px; font-feature-settings: 'tnum' 1">
+            <span>Tuesday–Friday · 9–21</span>
+            <span>Saturday · 9–19</span>
+            <span>Sunday · 10–17</span>
+            <span style="color: var(--color-neutral-300)">Monday · closed</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-300); margin: 0 0 16px">Visit</p>
+          <div style="display: grid; gap: 8px; font-size: 14px; line-height: 20px">
+            <span>184 Elizabeth Street</span>
+            <span>New York, NY 10012</span>
+            <span style="font-feature-settings: 'tnum' 1">(212) 555 0184</span>
+            <a href="#book" style="color: var(--color-bg)">hello@bornbeaute.com</a>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; border-top: 2px solid var(--color-neutral-700); padding-top: 20px; font-size: 13px; color: var(--color-neutral-300)">
+        <span>© 2026 Born Beauté Salon</span>
+        <span style="letter-spacing: 0.08em; text-transform: uppercase">Visa · Mastercard · Amex · Apple Pay</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#ec3013&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#ec3013&quot;, &quot;#1f3d2b&quot;, &quot;#5c1a26&quot;, &quot;#3b2a20&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;showShop&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot; },
+  &quot;showServiceBlurbs&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.applyAccent();
+  }
+  componentDidUpdate() {
+    this.applyAccent();
+  }
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.documentElement.style.setProperty('--color-accent', a);
+  }
+  renderVals() {
+    const showShop = this.props.showShop ?? true;
+    return {
+      showShop,
+      showBlurbs: this.props.showServiceBlurbs ?? true,
+      services: [
+        { num: '01', name: 'Hair styling', blurb: 'Cut, colour and blow-dry, mixed and finished in the room.', price: 'From $85' },
+        { num: '02', name: 'Facial & skincare', blurb: 'Skin read first, then a treatment plan you can keep up at home.', price: 'From $120' },
+        { num: '03', name: 'Nail care', blurb: 'Manicures, pedicures and gel work with hospital-grade tools.', price: 'From $45' },
+        { num: '04', name: 'Massage & spa', blurb: 'Sixty or ninety minutes, deep tissue or Swedish, unscented oils.', price: 'From $110' },
+        { num: '05', name: 'Makeup', blurb: 'Day, evening and camera-ready, with a lesson if you want one.', price: 'From $95' },
+        { num: '06', name: 'Bridal packages', blurb: 'Trial, day-of hair and makeup, and the party booked alongside.', price: 'From $420' }
+      ],
+      priceGroups: [
+        { name: 'Hair', items: [
+          { label: 'Consultation', price: 'Free' },
+          { label: 'Cut & finish', price: '$85' },
+          { label: 'Single-process colour', price: '$140' },
+          { label: 'Balayage', price: '$260' },
+          { label: 'Gloss & treatment', price: '$70' },
+          { label: 'Blow-dry', price: '$55' }
+        ] },
+        { name: 'Skin', items: [
+          { label: 'Signature facial · 60 min', price: '$120' },
+          { label: 'Resurfacing peel', price: '$165' },
+          { label: 'Dermaplaning', price: '$140' },
+          { label: 'Brow shape & tint', price: '$45' },
+          { label: 'Lash lift', price: '$95' },
+          { label: 'Back facial', price: '$130' }
+        ] },
+        { name: 'Nails', items: [
+          { label: 'Classic manicure', price: '$45' },
+          { label: 'Gel manicure', price: '$65' },
+          { label: 'Spa pedicure', price: '$75' },
+          { label: 'Gel removal & repair', price: '$25' },
+          { label: 'Nail art · per nail', price: '$8' },
+          { label: 'Paraffin add-on', price: '$20' }
+        ] }
+      ],
+      testimonials: [
+        { slotId: 'client-1', name: 'Maren Ostrowski', stars: '★★★★★', quote: '“They talked me out of the colour I asked for and gave me the one I actually wanted. Six weeks on it still looks deliberate.”' },
+        { slotId: 'client-2', name: 'Priya Raghunathan', stars: '★★★★★', quote: '“First facial where someone explained what they were doing and why. My skin has been calm since.”' },
+        { slotId: 'client-3', name: 'Devon Ashworth', stars: '★★★★★', quote: '“Booked a bridal trial and left with a plan for eight people. Nothing about the day was improvised.”' }
+      ],
+      products: [
+        { slotId: 'prod-1', name: 'Repair Shampoo', kind: 'Hair · 300 ml', price: '$32' },
+        { slotId: 'prod-2', name: 'Barrier Cream', kind: 'Skin · 50 ml', price: '$58' },
+        { slotId: 'prod-3', name: 'Cuticle Oil', kind: 'Nails · 15 ml', price: '$24' },
+        { slotId: 'prod-4', name: 'Studio Hand Balm', kind: 'Body · 100 ml', price: '$28' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
